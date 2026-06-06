@@ -1,6 +1,7 @@
 
 import './index.css'
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
 function Header( {setSearchQuery} ) {
   const [Search, setSearch] = useState("");
   function handleSearch(){
@@ -18,10 +19,16 @@ function Header( {setSearchQuery} ) {
     <input  onChange={(e)=>setSearch(e.target.value)} type="text" placeholder='Search for products, brands and more' className='search' style={{border:"1px solid #ccc",borderRadius:"4px",padding:"5px" ,width:"30%"}}/>
     <button onClick={handleSearch}  className='search-btn' style={{backgroundColor:"#007bff",color:"white",border:"none",borderRadius:"4px",padding:"5px 10px",cursor:"pointer"}}>Search</button>
     <nav style={{display:"flex",gap:"20px"}}>
-      <a href="#"  style={{textDecoration:"none"}}>Home</a>
-      <a href="#" style={{textDecoration:"none"}}>Products</a>
-      <a href="#" style={{textDecoration:"none"}}>Contact</a>
-      <a href="#" style={{textDecoration:"none"}}>About</a>
+      <Link to="/"  style={{textDecoration:"none"}}>Home</Link>
+      <Link to="/products"  style={{textDecoration:"none"}}>Products</Link>
+      <Link to="/about"  style={{textDecoration:"none"}}>About</Link>
+      <Link to="/signup"  style={{textDecoration:"none"}}>SignUp</Link>
+      <Link to="/signin"  style={{textDecoration:"none"}}>SignIn</Link>
+      <i
+          className="fa-solid fa-bars"
+         onClick={() => console.log("Menu clicked")}
+         style={{ cursor: "pointer", fontSize: "24px" }}></i>
+
     </nav>
     <button onClick={toggleDarkMode} className="LDMode">Toggle Dark Mode</button>
 
